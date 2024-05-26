@@ -1,0 +1,28 @@
+
+<div class="modal-content">
+   <!-- {{formattedDate}}-->
+    <!--Contenu de votre sticky note -->
+
+<div>
+    <div class="container" *ngIf="notes$">
+      <div *ngFor="let n of notes$ | async" >
+        
+        <!--[ngClass]="inputClass"???--> 
+        
+        <div style="display: flex; justify-content: space-between;  align-items: center;">
+          <input [ngClass]="{'edit': isEditMode(n.id), 'normal': !isEditMode(n.id)}" type="text" [(ngModel)]="n.title" [disabled]="!isEditMode(n.id)" (keyup.enter)="updateNote(n.id, n.title)" >
+          
+          <i style="margin-left: 25px;" class="fas fa-trash fa-sm" (click)="deleteNote(n.id)"></i>
+          <i class="fas fa-edit fa-sm" (click)="toggleEdit(n.id)"></i>
+           </div>
+        
+
+      </div>
+    </div>
+    <div class="editable-note" contenteditable="true" (input)="updateNewNoteTitle($event)" (keydown)="addNewNote($event)" (click)="onNoteClick()">
+      {{noteContent}}
+  </div>
+  
+</div>   
+  </div>
+  

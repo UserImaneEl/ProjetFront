@@ -1,0 +1,150 @@
+<!--<div id="container" [ngClass]="{sidebarActive:sidebarActive}">
+    <div id="sidebar">
+        <div id="sideMenu">
+            <a href="#">Demandes</a>
+            <a href="#">RendezVous</a>
+            <a href="#">Medecins</a>
+            <a href="#">Paramètres</a>
+        </div>
+    </div>
+    <div id="contentContainer">
+        <div id="header">
+            <div id="logo">
+                <img 
+                [src]="sidebarActive 
+                  ? 'assets/images/cross-svgrepo-com.svg'
+                  : 'assets/images/menu-icon.svg'"
+                (click)="sidebarActive = !sidebarActive"
+                >
+                ClicMedic
+            </div>
+            <div id="menu">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">
+                    <img src="assets/images/logout-svgrepo-com.svg">
+                </a>
+            </div>
+        </div>
+
+        
+    </div>
+</div>-->
+
+
+
+    <div class="container" style="overflow-y: hidden !important; ">
+        <div class="navigation" [ngClass]="{active: sidebarActive}">
+            <ul>
+                <li>
+                    <a href="#" >
+                        <span class="icon1"><img src="assets/images/kk.png"></span>
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a [routerLink]="['/SEC']">
+                        <span class="icon"><img src="assets/images/home-1-svgrepo-com.svg"></span>
+                        <span class="title">Overview</span>
+                    </a>
+                </li>
+                <li *ngIf="rendezVousService.roles.includes('SECRETAIRE');else otherContent1" class="dropdown-container">
+                    <a routerLink="/SEC" >
+                        <span class="icon"><img src="assets/images/calendar-svgrepo-com.svg"></span>
+                        <span class="title" >Demandes</span>
+                    </a>
+                   <!-- <button type="button"  data-bs-toggle="dropdown">
+                        <img src="assets/images/down-chevron-svgrepo-com.svg">  
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Link 1</a></li>
+                      </ul>-->
+                </li>            
+                <li *ngIf="rendezVousService.roles.includes('SECRETAIRE');else otherContent">
+                    <a routerLink="/medecins">
+                        <span class="icon"><img src="assets/images/calendar-svgrepo-com.svg"></span>
+                        <span class="title">Médecins</span>
+                    </a>
+                </li>
+                <ng-template #otherContent>
+                    <li>
+                        <a [routerLink]="'/calendar/' + cin_conn">
+                        <span class="icon"><img src="assets/images/calendar-svgrepo-com.svg"></span>
+                        <span class="title">Calendrier</span>
+                        </a>
+                    
+                    </li>
+                </ng-template>
+                <ng-template #otherContent1>
+                    <li>
+                        <a routerLink="/consult">
+                            <span class="icon"><img src="assets/images/icons-file.svg"></span>
+                            <span class="title">Consultation</span>
+                        </a>
+                    </li>
+                </ng-template>
+                <li *ngIf="rendezVousService.roles.includes('SECRETAIRE');else otherContent2">
+                    <a routerLink="/addPatient">
+                        <span class="icon"><img src="assets/images/people-add-svgrepo-com.svg"></span>
+                        <span class="title">Patient</span>
+                    </a>
+                </li>
+                
+                <ng-template #otherContent2>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon"><img src="assets/images/settings.svg"></span>
+                            <span class="title">Settings</span>
+                        </a>
+                    </li>
+                </ng-template>
+                <li>
+                    <a  routerLink="/profile">
+                        <span class="icon"><img src="assets/images/person.svg"></span>
+                        <span class="title ">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" (click)="logout()">
+                        <span class="icon"><img src="assets/images/logout.svg"></span>
+                        <span class="title no-underline">Log Out</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="main" [ngClass]="{active: sidebarActive}" >
+      
+           <div class="topbar" >
+            <div *ngIf="rendezVousService.isAuthenticated" style=" position: absolute;
+            width: 37px;
+            height: 37px;
+            margin-left: 987px;
+            border-radius: 50%;
+            background-color: #80bdff;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;">{{ nom_conn.charAt(0).toUpperCase() }}{{ prenom_conn.charAt(0).toUpperCase()}}</div>
+             
+             <div class="notification-icon" style="position: relative;left:953px;background-color: transparent;margin-top: 2px;" *ngIf="rendezVousService.roles.includes('SECRETAIRE');else notifOfMed">
+                <img src="assets/images/notification.svg">
+                <span class="badge" style="position: fixed;color: red;right:72px;top:19px">{{countWhenSec}}</span>
+           </div>
+                
+           <ng-template #notifOfMed>
+            <div class="notification-icon" style="position: relative;left:953px;background-color: transparent;margin-top: 2px;" >
+                <img src="assets/images/notification.svg">
+                <span class="badge" style="position: fixed;color: red;right:72px;top:19px">{{countWhenMed}}</span>
+           </div>
+        </ng-template>
+           </div>
+           
+           
+           
+    </div>
+   

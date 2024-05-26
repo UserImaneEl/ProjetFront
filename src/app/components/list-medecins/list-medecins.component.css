@@ -1,0 +1,656 @@
+/*#container {
+
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+
+    #sidebar {
+         width:200px;
+         height:100%;
+         background: #fff;
+         transform: translateX(-100%);
+         transition: transform 0.3s ease-in-out;
+         border-right: 1px solid #ccc;
+         box-shadow: 0px 4px 4px #ccc;
+
+         #sideMenu {
+            display: flex;
+            flex-direction: column;
+            padding-top: 100px;
+
+            a{
+                text-decoration: none;
+                color: #333;
+                border-bottom: 1px solid #ccc ;
+                padding: 15px 20px;
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+         }
+    }
+    #contentContainer{
+        flex-grow: 1;
+        margin-left: -200px;
+        transition: margin-left 0.3s ease-in-out;
+
+        #header {
+            display: flex;
+            width: 100%;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            box-shadow: 0px 4px 4px #ccc;
+
+
+
+            #logo{
+                text-decoration: none;
+                color:#05685E;
+                font-weight: bold;
+                font-size: 24px;
+
+                display: flex;
+                gap: 20px;
+                align-items: center;
+
+                svg {
+                    cursor: pointer;
+                }
+            }
+            #menu {
+                display: flex;
+                gap:40px;
+                a {
+                    text-decoration: none;
+                    color:#333;
+                    font-size: 16px;
+                    &:hover{
+                        color: #05685E ;
+                    }
+                    padding-top: 7px;
+
+                }
+            }
+
+        }
+    }
+
+    &.sidebarActive {
+        #sidebar {
+            transform: translateX(0);
+        }
+        #contentContainer {
+            margin-left: 0;
+        }
+    }
+}*/
+
+* {
+    font-family: "Ubuntu" , sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --blue :#212185;
+    --white: #fff;
+    --gray:#f5f5f5;
+    --black1: #222;
+    --black2:#999;
+}
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    
+    
+}
+.container {
+    position: relative;
+    width: 100%;
+}
+.navigation {
+    position: fixed;
+    width: 220px;
+    height: 100%;
+    background: #fff;
+    border-left: 10px solid  #fff;
+    transform: 0.5s;
+    overflow: hidden;
+    border-right: 10px solid #fff; /* Ajoutez cette ligne pour créer une bordure droite de couleur identique à la bordure gauche de .main */
+
+}
+#menu {
+  display: flex;
+  gap:40px;
+  a {
+      text-decoration: none;
+      color:#333;
+      font-size: 16px;
+      &:hover{
+          color: #05685E ;
+      }
+      padding-top: 7px;
+    }
+  }
+.navigation.active {
+  width: 80px;
+  /* Ajoutez d'autres styles pour la barre latérale active */
+}
+.navigation ul {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+}
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    /*border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;*/
+}
+
+.navigation ul li:nth-child(1){
+    margin-bottom: 70px;
+    pointer-events: none;
+    bottom: 10px;
+    right: 10px;
+}
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+} 
+.navigation ul li .title {
+  position: absolte;
+}
+
+.navigation ul li .title::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background: #212185;
+  display: block;
+  position: absolute;
+  bottom: 18px;
+  left: 9px; /* Alignez-le avec le bord gauche du titre */
+  margin: auto;
+  transition:  0.5s; /* Transition de la largeur pour l'animation */
+}
+
+.navigation ul li:hover .title::after {
+  width: 80%; /* Augmentez la largeur sur le survol */
+}
+.navigation ul li:nth-child(6){
+  margin-top: 40px;
+}
+.navigation ul li .title.no-underline::after {
+  display: none; /* Cachez la ligne sous le titre */
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 55px;
+    text-align: center;
+}
+.navigation ul li a .icon img {
+    font-size: 1.75rem;
+}
+.navigation ul li:first-child a .icon img {
+  width: 210px;
+  height: 140px;
+  background-color: #fff;
+}
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    color: #000;
+}
+.dropdown-menu {
+  width: 10px;
+  max-height: 30px; 
+   border: 1px solid white; 
+  margin-top: 10px;
+}
+.dropdown-container {
+  display: flex; 
+  align-items: center;
+  border: white;
+}
+.dropdown-container button  {
+  position: absolute;
+  border: none;
+  background-color: white; 
+  right: 15px;
+  z-index: 1;
+}
+.dropdown-item:hover  {
+  color: #212185;
+}
+
+.dropdown-item {
+  color: black !important; 
+  font-size: 14px;
+  left: 100px;
+  top: 20px;
+  font-family: sans-serif;
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px white;
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px white;
+  pointer-events: none;
+}
+
+.main {
+  position: absolute;
+  width: calc(100% - 221px);
+  left: 221px;
+  min-height: 100vh;
+  background-color: #f8f8f8; /* Couleur de fond pour la zone principale */
+  transition: 0.5s;
+  border-left: 3px solid #fff;
+  border-right: 3px solid #fff;
+  border-radius: 3px;
+}
+.main * {
+  background-color: #fff; /* Tous les éléments enfants de .main auront un arrière-plan blanc */
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  left: -40px;
+}
+.search {
+  position: relative;
+  width: 300px;
+  top:100px;
+  
+  left: 160px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+.search label input {
+  width: 100%;
+  height: 25px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid #999;
+}
+
+.search label img {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 1.2rem;
+}
+.user {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  width: 40px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cardBox {
+  position: absolute;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0px;
+}
+.cardBox .card {
+  top: 100px;
+  padding: 30px;
+  left: 260px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: #212185;
+}
+
+.cardBox .card .cardName {
+  color: #999;
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+  font-size: 3.5rem;
+  color: #999;
+  margin-left: auto; 
+  margin-top: -70px;
+}
+.cardBox .card:hover {
+  background: #212185;
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+  color: white;
+}
+
+.carre {
+    
+    background-color: transparent; /* Couleur du rectangle (blanc) */
+    position: relative;
+    top: 34px;
+    left: 200px;
+    width: 1400px;
+    border-radius: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* ============================= Cards ============================= */
+
+ngb-rating {
+    color: #f39c12;
+    font-size :20px;
+  
+  }
+  
+  .card-text {
+    margin-bottom: 1px; /* Adjust the margin-bottom as needed */
+  }
+  .btn-card {
+    width: 100%;
+  }
+  
+  .text-secondary {
+    color: grey; /* Use grey color for the specialty */
+  }
+  .card-title,
+  .text-secondary {
+    flex: 1; /* Equal width for name and specialty */
+  }
+  
+  .rectangle {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 28%; /* Cover the top half of the image */
+    background-color: #F0ECF8; /* Change the color and opacity of the rectangle */
+    z-index: 1; /* Ensure the rectangle is behind the image */
+  }
+  .card {
+    border-radius: 13px; /* Rounded corners for top-left and top-right */
+    box-shadow: 0 2px 4px rgba(0.1, 0.1, 0, 0.1); /* Reduced shadow effect */
+    border: none; /* No border */
+    background-color: #fff !important; /* Assurez-vous que la carte a un fond blanc */
+    border-radius: 13px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .card .rectangle {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 28%;
+    background-color: #F0ECF8; /* Couleur du rectangle */
+    z-index: 1;
+  }
+  .col {
+    position: relative;
+    margin-left: 45px;
+    bottom: 60px;
+    width: 200px;
+    height: 221px;
+    
+  }
+  
+  .input-group input[type="text"] {
+    border-radius: 20px !important;
+    background-color: #fff;
+  
+  }
+  .card-body{
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0.1, 0, 0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+   top: 5px;
+  }
+  
+  /* Center the search icon vertically */
+  .input-group-btn {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style the Font Awesome search icon */
+  .fa-search {
+    margin-right: 3px;
+  }
+  
+  /* Adjust margin and padding for better alignment */
+  .input-group-sm {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+  
+  /* Adjust card styles for better spacing */
+  .card {
+    margin-top: 4px;
+    position: relative;
+    z-index: -1;
+  }
+  
+  /* Style the "Prendre rendez-vous" button */
+  .btn-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin-top: 0px;
+  }
+  
+  
+  .input-group {
+    width: 100%;
+    max-width: 800px;
+    background-color: #f1f1f1 !important;
+    border-radius: 20px;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .input-group button i {
+    color: #888 !important;
+  }
+  .ngx-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:4px;
+  }
+  
+    .ngx-pagination li {
+      width: 28px;
+      height: 28px;
+      border-radius: 50% !important;
+      display: flex !important;
+      background: white;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+  
+      /* Hide pagination for small screens */
+  
+      &.small-screen {
+        display: none !important;
+      }
+  
+      /* Style the previous and next buttons */
+  
+      &.pagination-previous,
+      &.pagination-next {
+        a, span {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          overflow: hidden;
+          color: #f8f8f8;
+        }
+  
+      }
+    }
+  .ngx-pagination .pagination-previous a:before,
+  .ngx-pagination .pagination-previous.disabled:before,
+  .ngx-pagination .pagination-next::before {
+    margin-right: 0px !important;
+    font-size: 26px;
+    margin-top: -10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    color: #219ebc;
+    left: 0;
+    pointer-events: none;
+  }
+  .ngx-pagination .pagination-next::before {
+    content: '\bb';
+  }
+    .ngx-pagination .pagination-next::after {
+    display: none !important;
+  }
+    .ngx-pagination .pagination-previous.disabled:before,
+    .ngx-pagination .pagination-next.disabled:before{
+      opacity: 0.4;
+    }
+  .ngx-pagination .pagination-previous.disabled:hover{
+  background: #f8f8f8 !important;
+  }
+  .ngx-pagination a:hover,
+  .ngx-pagination button:hover {
+    background: initial !important;
+  }
+  .cdk-overlay-pane {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 13px;
+     font-size: smaller;
+    background-color: white;
+  }
+  
+  .cdk-overlay-pane{
+    font-size: 13px;
+  }
+  .input-group input:focus {
+    border-color: #219ebc; /* Change the border color to a lighter color */
+    box-shadow: none; /* Remove any box shadow */
+  
+  }
+  .input-group input {
+    outline: none;
+    background: none;
+    flex: 1;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  dl, ol, ul {
+    margin-top: -20px;
+  }
+  .alert {
+    height: 30px;
+    margin-right: 55px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+  }
+  .btn-close{
+    margin-left: 640px;
+    font-size: 12px;
+  
+  }
+  #button-addon {
+    background-color: #f1f1f1;
+}

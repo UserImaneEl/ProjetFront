@@ -1,0 +1,61 @@
+/* Ajuster la largeur du conteneur principal du calendrier */
+.small-calendar {
+  width: 100%;
+  height: auto; /* Allow the container to adjust its height based on content */
+  overflow: hidden; /* Hide the scrollbars */
+}
+
+
+.main {
+  position: absolute;
+  width: 100%; /* Occupe toute la largeur disponible */
+  min-height: 100vh;
+  background: white;
+  background-color: whitesmoke; /* Couleur de fond pour la zone principale */
+  transition: 0.5s;
+  border-left: 3px solid #fff;
+  border-right: 3px solid #fff;
+  border-radius: 3px;
+}
+
+
+.mwl-calendar-month-cell {
+  width: 10px; /* Ajustez la largeur des cellules selon vos besoins */
+  height: 10px; /* Ajustez la hauteur des cellules selon vos besoins */
+  font-size: 12px; /* Ajustez la taille de la police selon vos besoins */
+}
+
+.btn-group :hover {
+  background-color: #907df8; /* Couleur légèrement assombrie au survol */
+  /* Couleur du texte au survol */
+  cursor: pointer; /* Curseur de la souris en main au survol */
+}
+.topbar {
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  background-color: white;
+  position: relative;
+}
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  left: -40px;
+}
+
+.logout{
+  position: absolute;
+width: 20px;
+  height: 22px;
+  margin-left: 1290px;
+}

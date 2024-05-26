@@ -1,0 +1,18 @@
+<app-sidebar></app-sidebar>
+<div class="card mx-auto " style="width: 60%; top: 100px;left: 100px;height: 400px; background-color: white; border: none;"  >
+  
+    <div class="card-body" >
+        <p style="margin-left: 14px;">Consultation pour <strong>{{PatientPrenom}} {{PatientNom}}</strong> identifié(e) par <strong>{{PatientCin}}</strong>: </p>
+        
+         
+
+              <textarea  id="consultationDescription" [(ngModel)]="consultationDescription" class="form-control custom-textarea" rows="12" placeholder="Enter consultation description..."></textarea>
+          
+           
+                <div style="text-align:center;" class="btn" (click)="createConsultation()">Create </div>
+      
+          
+    </div>
+
+
+</div>

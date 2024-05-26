@@ -1,0 +1,101 @@
+
+.body {
+  width: 400px;
+  height: 90vh; /* Utilisation de la hauteur de la fenêtre pour garantir le centrage vertical */
+  display: flex;
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+ /* Fond semi-transparent */
+  position: fixed;
+  top: 0;
+  left: 450px;
+ 
+}
+
+.modal-body {
+  
+  max-width: 600px; /* Largeur maximale de la fenêtre modale */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0.3, 0.3, 0, 0.4);
+}
+
+  
+  .patient-info {
+    background-color: white;
+    padding: 10px;  
+     
+  }
+ 
+  .form-control{
+    width: 150%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+  .form-control:focus {
+    outline: none; /* Supprime l'outline par défaut */
+    border-color: transparent; /* Rend la bordure transparente */
+  }
+  .ctl{
+    width: 150%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+  .ctl :focus{
+    outline: none; /* Supprime l'outline par défaut */
+    border-color: transparent;
+  }
+  .btn {
+    display: inline-block;
+    border-radius: 40px;
+    height: 25px;
+    width: 100px;
+    padding: 0 0;
+    background-color: #e67e30;
+    color: #ffffff;
+     
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left:0px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .btn:hover {
+    background-color: #09758e;
+    transform: scale(1.1); /* Léger effet de zoom au survol */
+  }
+  
+  .btn:active {
+    transform: scale(0.9); /* Réduit légèrement la taille lors du clic */
+  }
+  .calendar-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 0px;
+  }
+  
+  .fa-calendar {
+    color: #007bff; /* Couleur de l'icône */
+    font-size: 20px; /* Taille de l'icône */
+  }
+  .custom-icon{
+     color: black;
+  }
+  .alert {
+    width: 350px;
+    height: 18px;
+    display: flex;
+    margin-left: 0px;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center;
+    font-size: 11px;
+  }
+  

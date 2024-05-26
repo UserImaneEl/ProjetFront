@@ -1,0 +1,125 @@
+<!--<div id="container" [ngClass]="{sidebarActive:sidebarActive}">
+    <div id="sidebar">
+        <div id="sideMenu">
+            <a href="#">Demandes</a>
+            <a href="#">RendezVous</a>
+            <a href="#">Medecins</a>
+            <a href="#">Paramètres</a>
+        </div>
+    </div>
+    <div id="contentContainer">
+        <div id="header">
+            <div id="logo">
+                <img 
+                [src]="sidebarActive 
+                  ? 'assets/images/cross-svgrepo-com.svg'
+                  : 'assets/images/menu-icon.svg'"
+                (click)="sidebarActive = !sidebarActive"
+                >
+                ClicMedic
+            </div>
+            <div id="menu">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">
+                    <img src="assets/images/logout-svgrepo-com.svg">
+                </a>
+            </div>
+        </div>
+
+        
+    </div>
+</div>-->
+
+
+<body>
+    <app-sidebar></app-sidebar>
+   
+        
+       
+        <div class="input-group input-group-sm mb-5" style="width: 360px;top: 74px;  left:236px; margin-bottom: 0;position: relative; background-color: transparent;">
+            <input type="text" id="searchInput" class="form-control rounded-pill" matInput [matAutocomplete]="auto"  [formControl]="searchTerm"
+                    placeholder=" Rechercher" aria-label="Search" aria-describedby="button-addon"
+                   >
+                   <button class="btn" type="button" id="button-addon" (click)="searchMedecin()">
+                    <img src="assets\images\search-svgrepo-com.svg">
+                  </button>
+          </div>
+          <mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-panel">
+            <mat-option *ngFor="let doctor of filteredOptions | async"  (click)="searchMedecin()" [value]="doctor.nom + ' ' + doctor.prenom" style="background-color: white;">
+              {{ doctor.nom }} {{ doctor.prenom }}
+            </mat-option>
+          </mat-autocomplete>
+          <div *ngIf="successMessage" class="alert alert-success ">
+            {{ successMessage }}
+          </div>
+          <div *ngIf="message" class="alert alert-warning">
+            {{message}}
+            <button (click)="removeAlert()" class="btn-close">
+            </button>
+          </div>
+        
+        
+        
+         <!-- <div style="margin-left: 30px; margin-bottom: 20px; margin-right: 30px; height: 5px;">
+            <div *ngIf="noResultsFound" class="alert alert-warning" role="alert">
+              Aucun médecin trouvé.
+            </div>
+          </div>-->
+        
+    
+
+    
+        <div class="carre">
+          <div style="z-index: 1000 ">
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success ">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="message" class="alert alert-warning">
+          {{message}}
+          <button (click)="removeAlert()" class="btn-close">
+          </button>
+        </div>
+            <div class="row row-cols-1 row-cols-md-5 g-4 me-5 ms-5 mb-1" style="padding-top: 0px !important;">
+               <div class="col" *ngFor="let doctor of doctors | paginate: { itemsPerPage:itemsPerPage , currentPage: p }" >
+                  <div style="max-width: 230px;  border-radius: 13px;margin-top: 70px;height: 180px;border: none;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);position: relative;">
+                     <div class="rectangle"></div>
+                        <div class="card-body" style="padding: 12px;">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="rounded-circle overflow-hidden" style="margin-top: 7px ;width: 70px; height: 67px; position: relative; z-index: 1; border:3px solid #6B93FB;">
+                                   <img src="assets/images/mine.png" class="card-img-top"
+                                      alt="Skyscrapers" class="w-100 h-100">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-start " >
+                              <div>
+                                <h6 class="card-title" style="margin: 0; font-size: smaller;">{{ doctor.nom }} {{ doctor.prenom }}</h6>
+                              </div>
+                              <div class="text-end flex-grow-1">
+                                  <p class="card-text text-secondary" style="margin: 0; font-size: smaller;">{{doctor.specialite}}</p>
+                              </div>
+                            </div>
+            
+                            <div class="d-flex justify-content-between align-items-center">
+                               <div>
+                                  <span style="color: grey; font-size: smaller;">{{doctor.cin}}</span>
+                               </div>
+                            </div>
+                            <button (click)="openCalendar(doctor.cin)" class="btn btn-card" style="box-sizing: border-box; padding: 3px 5px; background-color: #219ebc; color: white; font-size: smaller;cursor: pointer;"
+                                >Consulter le Calendrier</button>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            <div *ngIf="totalPages > 1" class=" justify-center items-center" style="margin-left:30%; top: 100%; padding: 0; position: fixed;" > 
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+
+<mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-panel" >
+    <mat-option *ngFor="let doctor of filteredOptions | async"  (click)="searchMedecin()" [value]="doctor.nom + ' ' + doctor.prenom" >
+      {{ doctor.nom }} {{ doctor.prenom }}
+    </mat-option>
+  </mat-autocomplete>

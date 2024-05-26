@@ -1,0 +1,14 @@
+
+.body {
+    width: 550px;
+    height: 8vh; /* Utilisation de la hauteur de la fenêtre pour garantir le centrage vertical */
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical */
+   /* Fond semi-transparent */
+    position: fixed;
+    top: 200px;
+    left: 380px;
+     background-color: white;
+     border-radius: 10px;
+  }

@@ -1,0 +1,87 @@
+
+.cardBox {
+    position: absolute;
+    width: 64%;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 13px;
+    margin-left: 66px;
+    margin-top: 10px;
+     
+  }
+  circle{
+    width: 37px;
+    height: 37px;
+    margin-left: 987px;
+    border-radius: 50%;
+    background-color: #80bdff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  .cardBox .card {
+    top: 90px;
+    height: 100px;
+    background-color: #fbfbf4;
+    left: 260px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .cardBox .card .numbers {
+
+    font-weight: 450;
+    font-size: 1.6rem;
+    color: #41646e;
+    top: 18px;
+    position: relative;
+    left: 75px;
+   
+
+  }
+  
+  .cardBox .card .cardName {
+    color: #999;
+    font-size: 1.0rem;
+   
+    padding: 0;
+   
+    position: relative;
+    position: absolute;
+    top: 55px; /* Ajustez selon votre besoin */
+    left: 75px; /* Ajustez selon votre besoin */
+    margin: 0; 
+  }
+  
+  .cardBox .card .iconBx {
+    font-size: 3.5rem;
+    color: #999;
+   margin-right: 10px;
+
+  
+  }
+  .cardBox .card .iconBx1 {
+    font-size: 3.5rem;
+    color: #999;
+    margin-left: auto; 
+    margin-top: -65px;
+  }
+  .cardBox .card .iconBx2 {
+    font-size: 3.5rem;
+    color: #b0b0b0;
+    margin-left: auto; 
+    margin-top: -87px;
+  }
+  .cardBox .card:hover {
+    background: #B08EF2;
+  }
+  .cardBox .card:hover .numbers,
+  .cardBox .card:hover .cardName,
+  .cardBox .card:hover .iconBx {
+
+  color: white;
+  }

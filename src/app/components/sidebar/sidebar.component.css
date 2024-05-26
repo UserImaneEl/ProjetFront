@@ -1,0 +1,352 @@
+/*
+
+.topbar {
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  background-color: white;
+  position: relative;
+}*/
+
+
+#menu {
+  position: relative;
+  display: flex;
+  gap:25px;
+  flex-direction:row;
+  a {
+    text-decoration: none;
+    color:#888888;
+    font-size: 16px;
+    font-weight: 500;
+    &:hover{
+      color: #fcbf49;
+    }
+    padding-top: -10px;
+
+  }
+}
+.logout{
+  position: absolute;
+width: 20px;
+  height: 22px;
+  margin-left: 1290px;
+}
+
+
+
+* {
+    font-family: "Ubuntu" , sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --blue :#212185;
+    --white: #fff;
+    --gray:#f5f5f5;
+    --black1: #222;
+    --black2:#999;
+}
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    
+}
+.container {
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+   
+}
+.navigation {
+  position: fixed;
+  width: 220px;
+  height: 100%;
+  background: #fff;
+  border-left: 10px solid  #fff;
+  transform: 0.5s;
+  overflow: hidden;
+  border-right: 10px solid #fff;
+  /*box-shadow: 5px 0px 5px  rgba(0, 0, 0, 0.1) !important;  /* Ajoutez cette ligne pour créer une bordure droite de couleur identique à la bordure gauche de .main */
+
+}
+#menu {
+display: flex;
+gap:40px;
+a {
+    text-decoration: none;
+    color:#333;
+    font-size: 16px;
+    &:hover{
+        color: #05685E ;
+    }
+    padding-top: 7px;
+  }
+}
+.circle {
+  position: absolute;
+  width: 37px;
+  height: 37px;
+  margin-left: 950px;
+  border-radius: 50%;
+  background-color: #80bdff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.navigation.active {
+width: 80px;
+/* Ajoutez d'autres styles pour la barre latérale active */
+}
+.navigation ul {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+}
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  margin-bottom: 5px; /* Réduisez l'espacement entre les éléments */
+}
+
+
+.navigation ul li:nth-child(1){
+  margin-bottom: 70px;
+  pointer-events: none;
+  bottom: 10px;
+  right: 10px;
+}
+.navigation ul li a {
+  position: relative;
+  display: block;
+  /* Réduisez la largeur en tenant compte des marges */
+  display: flex;
+  text-decoration: none;
+  color: white;
+  align-items: center;
+  padding: 0;
+  margin-top: 0;
+}
+
+.navigation ul li .title {
+position: absolte;
+padding: 0;
+}
+
+.navigation ul li .title::after {
+content: '';
+width: 0;
+height: 2px;
+background: #212185;
+display: block;
+position: absolute;
+bottom: 1px;
+left: 0px; /* Alignez-le avec le bord gauche du titre */
+margin: auto;
+transition:  0.5s; /* Transition de la largeur pour l'animation */
+}
+
+.navigation ul li:hover .title::after {
+width: 100%; /* Augmentez la largeur sur le survol */
+}
+.navigation ul li:nth-child(7){
+margin-top: 150px;
+
+
+}
+.navigation ul li a .icon {
+  margin-top: 5px;
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 40px; /* Réduisez la hauteur */
+  line-height: 40px; /* Ajustez la ligne pour être égale à la hauteur */
+  text-align: center;
+}
+
+.navigation ul li a .icon img {
+  font-size: 1.5rem; /* Réduisez la taille de la police de l'icône si nécessaire */
+}
+
+.navigation ul li:first-child a .icon img {
+width: 210px;
+height: 140px;
+background-color: #fff;
+}
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 0px;
+  height: 30px; /* Réduisez la hauteur */
+  line-height: 40px; /* Ajustez la ligne */
+  text-align: start;
+  white-space: nowrap;
+  color: #000;
+}
+
+
+.navigation ul li:first-child a .icon1 img {
+   margin-left:30px;
+   margin-top: 20px;
+  width: 150px;
+  height: 35px;
+  background-color: #fff;
+  
+}
+
+.dropdown-menu {
+  width: 10px;
+  max-height: 30px; 
+   border: 1px solid white; 
+  margin-top: 10px;
+}
+.dropdown-container {
+  display: flex; 
+  align-items: center;
+  border: white;
+}
+.dropdown-container button  {
+  position: absolute;
+  border: none;
+  background-color: white; 
+  right: 15px;
+  z-index: 1;
+}
+.dropdown-item:hover  {
+  color: #212185;
+}
+
+.dropdown-item {
+  color: black !important; 
+  font-size: 14px;
+  left: 100px;
+  top: 20px;
+  font-family: sans-serif;
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+ 
+  pointer-events: none;
+}
+
+.main {
+  position: absolute;
+  width: calc(100% - 221px);
+  left: 221px;
+  min-height: 100vh;
+  background: white;
+  background-color:whitesmoke; /* Couleur de fond pour la zone principale */
+  transition: 0.5s;
+  border-left: 3px solid #fff;
+  border-right: 3px solid #fff;
+  border-radius: 3px;
+  /*box-shadow: -5px 0px 5px -5px rgba(0, 0, 0, 0.5);*/
+}
+.main * {
+  background-color: #fff; 
+  /* Tous les éléments enfants de .main auront un arrière-plan blanc */
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+ 
+}
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);/* Déplace l'ombre de 5px vers la droite */
+  border-left: none;
+}
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  left: -40px;
+}
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 150px;
+  margin-top: 5px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+.search label input {
+  width: 100%;
+  height: 25px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid #999;
+}
+
+.search label img {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 1.2rem;
+}
+.user {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  width: 40px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+/*.container .navigation {
+ 
+ 
+  z-index: 1000;
+  background-color: transparent;
+}
+*/

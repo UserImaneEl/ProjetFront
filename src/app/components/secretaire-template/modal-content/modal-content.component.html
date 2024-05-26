@@ -1,0 +1,41 @@
+<div class="body">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="patient-info">
+          <!--<div *ngIf="validationSuccess" class="validation-icon show">
+            <i class="fa fa-check-circle fa-2x text-success"></i>
+          </div>-->
+          
+          <h6 style="text-align: center;">Informations du Patient:</h6>
+          <div *ngIf="note" class="alert alert-success ">
+            {{ note}}
+          </div>
+          <hr> <!-- Ligne de séparation -->
+          <p><strong>Cin :</strong> {{rendezVous.cin}}</p>
+          <hr> <!-- Ligne de séparation -->
+          <p><strong>Nom :</strong> {{rendezVous.nom}}</p>
+          <hr> <!-- Ligne de séparation -->
+          <p><strong>Prénom :</strong> {{rendezVous.prenom}}</p>
+          <hr> <!-- Ligne de séparation -->
+          <p><strong>Médecin :</strong> {{rendezVous.nom_med}} {{rendezVous.prenom_med}}</p>
+          <hr> <!-- Ligne de séparation -->
+          <div class="row align-items-center"> <!-- Utilisation de la classe "align-items-center" pour aligner verticalement -->
+            <div class="col-md-2"><strong>Date:</strong></div>
+            <div class="col-md-8 d-flex align-items-center" > <!-- Utilisation de la classe "d-flex" et "align-items-center" pour aligner horizontalement et verticalement -->
+              <input type="text" class="ctl" [value]="proposedDateTime" [(ngModel)]="reformedDte">
+              <!-- Ajout d'un bouton ou d'une icône pour ouvrir le calendrier -->
+              <button class="calendar-button" (click)="openCalendar()">
+                <i class="fa fa-calendar fa-sm custom-icon"></i>
+
+              </button>
+            </div>
+          </div>
+          <hr> <!-- Ligne de séparation -->
+          <div style="text-align:center;" class="btn" (click)="validerRdv()">Valider  </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

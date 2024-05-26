@@ -1,0 +1,83 @@
+.specialties-container {
+    position: relative;
+    overflow-x: hidden; 
+    overflow-y: hidden; /* Masquer la barre de défilement */
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    width: 70%;
+    top: 100px;
+   left: 300px;
+    /* Alignement vertical au centre */
+  }
+  
+  .scroll-icons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Pour être au-dessus des cartes */
+  }
+  
+  .scroll-icons.left {
+    left: 0;
+  }
+  
+  .scroll-icons.right {
+    right: 215px;
+  }
+  
+  .specialty-cards {
+    display: flex;
+    gap: 1px; /* Espacement entre les cartes */
+  }
+  
+  .specialty-card {
+    position: relative; /* Ajout de position relative */
+    flex: 0 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    scroll-snap-align: center;
+    background-color: white;
+    transition: transform 0.3s ease;
+    width: 150px;
+    height: 150px; /* Animation au survol */
+  }
+  
+  .specialty-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  .specialty-card:hover {
+    transform: scale(1.05); /* Effet de zoom au survol */
+  }
+  
+  .specialty-card:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 65, 78, 0.2); /* Couleur #0B8FAC avec opacité */
+    z-index: 1; /* Pour être au-dessus de l'image */
+    transition: opacity 0.3s ease;
+    opacity: 1;
+  }
+  
+  .specialties-container:hover .scroll-icons {
+    opacity: 1;
+  }
+  

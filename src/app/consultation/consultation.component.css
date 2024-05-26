@@ -1,0 +1,219 @@
+.main {
+  
+    
+    min-height: 100vh;
+  
+    overflow: hidden;/* Empêche le défilement horizontal */
+  }
+  .main * {
+    background-color: #fff; 
+  }
+  .main.active {
+    left: 0px;
+  }
+  .topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+    left: -40px;
+  }
+  .search {
+    position: relative;
+    width: 400px;
+    margin: 0 150px;
+    margin-top: 5px;
+  }
+  
+  .search label {
+    position: relative;
+    width: 100%;
+    padding-bottom: 5px;
+  }
+  
+  .search label input {
+    width: 100%;
+    height: 25px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #999;
+  }
+  
+  .search label img {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 1.2rem;
+  }
+  .user {
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  #menu {
+    position: relative;
+    margin-left: 670px;
+    display: flex;
+    gap:40px;
+    flex-direction:row;
+    a {
+        text-decoration: none;
+        color:#333;
+        font-size: 16px;
+        &:hover{
+            color: #B08EF2;
+            transform: 0.5s;
+        }
+        padding-top: 5px;
+
+    }
+    img {
+        position: relative;
+        right: 670px;
+        width: 120px;
+    }
+}
+  
+  .user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*
+.corps {
+    position: relative;
+    bottom: 450px;
+    left: 20px;
+  table {
+    background: #fff;
+    border-radius: 2rem;
+    width: 700px;
+    text-align: center;
+    box-shadow:  0 2rem 3rem rgba(132, 139, 200, 0.18);
+    transition: all 300ms ease;
+    &:hover {
+      box-shadow: none;
+    }
+    tbody td{
+      height: 2.8rem;
+      border-bottom: 1px solid rgba(132, 139, 200, 0.18);
+      color: #677483;
+    }
+    tbody tr:last-child {
+      border: none;
+    }
+  }
+}
+.h2 {
+  margin-bottom: 0.8rem;
+}*/
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.notification {
+  border-radius: 8px; /* Coins arrondis */
+  margin-bottom: 15px; /* Espacement entre les notifications */
+  background-color: #B08EF2; /* Couleur de fond */
+  box-shadow: 0px 4px 10px rgba(0.2, 0.2, 0.2, 0.2); /* Ombre */
+  transition: transform 0.2s ease;
+ /* Transition pour l'effet de survol */
+}
+
+.notification:hover {
+  transform: translateY(-5px); /* Léger effet de translation au survol */
+}
+
+.notification a {
+ 
+  color: #333; /* Couleur du texte */
+  text-decoration: none;
+ 
+}
+
+.notification .list-group-item {
+  border: none; /* Supprime la bordure par défaut */
+  height:46px;
+  background-color: white;
+}
+.body {
+  overflow: hidden ;
+ /* Arrêter le défilement */
+}
+
+.card-header {
+  border-radius: 8px 8px 0 0; /* Coins arrondis seulement en haut */
+  background-color: #0B8FAC;
+}
+.container-left {
+  padding-left:0 ;
+  position: fixed;
+  left: 510px;
+  bottom: 390px; 
+
+  width:97%/* Ajustez la position verticale si nécessaire */
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+ /* Choisissez la couleur de fond souhaitée */
+  color: #fff; /* Choisissez la couleur du texte */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ 
+}
+.card-body {
+width: 63%;
+ left: 350px;
+  position: fixed;
+}
+.title {
+  text-align: left; /* Centrer le titre */
+  margin-top: 20px; /* Espacement entre le titre et les éléments précédents */
+  background-color: #999;
+  position: relative;
+  left: 120px;
+}
+
+.title h2 {
+  font-size: 20px; /* Taille de la police du titre */
+  color: #333; /* Couleur du texte */
+  padding-top: 25px; /* Espacement entre le texte et la bordure inférieure */
+  background-color: #eee;
+
+}
+.custom-textarea {
+    width: 100%; /* ou toute autre largeur personnalisée */
+}

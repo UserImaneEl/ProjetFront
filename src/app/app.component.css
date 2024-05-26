@@ -1,0 +1,7 @@
+router-outlet {
+    position: absolute;
+    bottom: 100%; /* Place le router-outlet en bas de son conteneur parent */
+    left: 0; /* Ajustez la position horizontale si nécessaire */
+    right: 0;
+  }
+  

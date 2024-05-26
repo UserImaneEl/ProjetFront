@@ -1,0 +1,35 @@
+.modal-content {
+    position: fixed;
+    top: 40%; /* Place le haut du sticky note au milieu de l'écran vertical */
+    left: 49.3%; /* Place le côté gauche du sticky note au milieu de l'écran horizontal */
+    transform: translate(-50%, -50%); 
+    width: 330px;
+    height: 330px; /* Ajustez cette valeur selon votre besoin */
+    background-color: #bde4d3; /* Couleur de fond du sticky note */
+    border: 1px solid black;
+    padding: 10px;
+    z-index: 1000; /* Assurez-vous que le z-index est supérieur à celui des autres éléments pour que le sticky note soit au-dessus */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Ombre portée pour effet de profondeur */
+  }
+  .editable-note {
+    /* Bordure transparente */
+    min-height: 20px; /* Hauteur minimale pour l'affichage */
+    padding: 12px; /* Espacement intérieur */
+    line-height: 1.5; /* Hauteur de ligne */
+    color: rgba(0, 0, 0, 0.5);
+    outline: none; /* Supprime le contour lorsque l'élément est sélectionné */
+  }
+  
+  .edit{
+    background-color: #bde4d3;
+    border:none;
+    outline: none;
+   
+  }
+  .normal{
+    background-color: #bde4d3;
+    border:none;
+    color:black
+  }
+  
+  

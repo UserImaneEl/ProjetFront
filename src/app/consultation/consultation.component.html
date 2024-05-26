@@ -1,0 +1,62 @@
+<div class="body">
+<div *ngIf="!consultationFormVisible"  class="main" >
+   <app-sidebar></app-sidebar>
+    <!-- appointment-list.component.html -->  
+    
+  </div>
+  <!-- appointment-list.component.html 
+  <div class="corps"> 
+  <h2>Rendez vous </h2>
+  <table *ngIf="!consultationFormVisible">
+  <thead>
+    <tr>
+      <th>Numéro d'Ordre</th>
+      <th>Rendez-vous ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3iw3iw</td> 
+      <td>Q3829</td>
+    </tr>
+    <tr>
+      <td>3iw3iw</td> 
+      <td>Q3829</td> 
+    </tr>
+    <tr>
+      <td>3iw3iw</td>
+      <td>Q3829</td> 
+    </tr>
+  </tbody>
+  </table>
+  </div>-->
+
+  <div class="container-left no-padding no-margin">
+    <div class="row no-padding no-margin">
+      <div class="col-md-8 offset-md-2 no-padding no-margin">
+        <div class="card-body">
+          <div class="list-group">
+            <!-- Ajout du message "Bienvenue" -->
+            <div class="welcome-message" style="font-family: 'Poppins';top: 100px;margin-left: 214px;position: fixed;"><h3>Bienvenue Docteur {{nom_med}} {{prenom_med}}</h3></div>
+  
+            <div *ngFor="let appointment of appointments$ | async" (click)="showConsultationForm(appointment.id)">
+              <div class="notification">
+                <span class="list-group-item list-group-item-action">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center" style="margin-top: 3px;">
+                      <div class="circle" [style.background-color]="getRandomColor()">1</div>
+                      <div style="margin-left: 300px; color: #999; font-size: 0.9rem; margin-bottom: 4px;">{{ appointment.nom }} {{ appointment.prenom }}</div>
+                      <div>
+                        <img (click)="showConsultationForm(appointment.id)" src="assets\images\three-dots.svg" width="20" height="20" style="position: absolute; bottom: 13px; left: 752px;">
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

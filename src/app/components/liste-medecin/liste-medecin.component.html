@@ -1,0 +1,125 @@
+<app-sidebar></app-sidebar>
+    
+    <!--
+    <div class="doctors-container">
+        <div *ngFor="let doctor of doctors" class="col-md-4 mb-4" class="doctor-card">
+            <div style="max-width: 230px; border-radius: 13px; box-shadow:rgba(0, 0, 0, 0.1); position: relative; margin-top: 20px;">
+                <div style="padding: 10px; background-color: white; border-radius: 13px; width: 750px; height: 80px;">
+                    <div class="d-flex justify-content-center mb-3">
+                        <div class="rounded-circle overflow-hidden" style="margin-top: 10px; top: -4px; width: 52px; right: 330px; height: 54px; position: relative; z-index: 1; border: 3px solid #B08EF2;">
+                            <img src="assets/images/hh.jpg" class="card-img-top" alt="Skyscrapers" class="w-100 h-100">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 style=" font-size: regular; font-family: Poppins;position: fixed;right:700px;margin-top: -65px;"><strong>{{ doctor.nom }} {{ doctor.prenom }}</strong></h6>
+                        </div>
+                        <div style=" right: 610px; margin-top: -45px; position: fixed;">
+                            <p class="text-secondary text-end " style="font-size: smaller;">Médecin spécialisé en {{doctor.specialite}}</p>
+                    </div>
+                          </div>
+                   
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div style="position: relative; left: 274px;">
+                            <span style="color: grey; font-size: smaller;"><img src="assets/images/location-svgrepo-com.svg">{{doctor.adr}}</span>
+                        </div>
+                    </div>
+                    <div class="vertical-line" style="left: 400px;"></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div style="position: relative; left: 420px;">
+                            <span style="color: grey; font-size: smaller;"><img src="assets/images/telephone-svgrepo-com (1).svg">+212 {{doctor.tel}}</span>
+                        </div>
+                    </div>
+                    <div class="vertical-line" style="left: 533px;"></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div style="position: relative; left: 560px;">
+                            <span style="color: grey; font-size: smaller;"><img src="assets/images/mail-alt-svgrepo-com (1).svg">{{doctor.email}}</span>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+  </div>
+
+-->
+<body class="main-container" style="overflow: hidden !important; height: 100vh !important;">
+<!--<div  style="font-family: 'Poppins';top: 80px;left: 390px;position: fixed;"><h3>Bienvenue {{nom_conn}} {{prenom_conn}} </h3></div>-->
+<div class="input-group input-group-sm mb-5" style="width: 25%;top: 16%;  left:23%; margin-bottom: 0;position: relative; background-color: transparent; ">
+    <input type="text" id="searchInput" class="form-control rounded-pill" matInput [matAutocomplete]="auto"  [formControl]="searchTerm"
+            placeholder=" Rechercher" aria-label="Search" aria-describedby="button-addon"
+           >
+           <button class="btn" type="button" id="button-addon" (click)="searchMedecin()">
+            <img src="assets\images\search-svgrepo-com.svg">
+          </button>
+  </div>
+  <mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-panel">
+    <mat-option *ngFor="let doctor of filteredOptions | async"  (click)="searchMedecin()" [value]="doctor.nom + ' ' + doctor.prenom" style="background-color: white;">
+      {{ doctor.nom }} {{ doctor.prenom }}
+    </mat-option>
+  </mat-autocomplete>
+  <div class="col-md-6" >
+    <button class="filterButton" mat-button [matMenuTriggerFor]="menu" (click)="fetchAllDepts()"
+    style="margin-left: 24px;border-radius: 15px; background-color: #fcbf49; color: white; border: none; width: 120px; height: 30px;">
+    Filtrer
+    <i class="fa fa-caret-down" style="margin-left: 10px"></i>
+  </button>
+  
+  <mat-menu #menu="matMenu" class="mat-menu-panel" style="background-color: #fff; border: 1px solid #ccc; border-radius: 5px;">
+    <ng-container *ngFor="let dept of deptNames">
+      <button mat-menu-item class="deptNames" style="padding: 5px 10px; color: #333;" (click)="onClickOption(dept)">{{ dept }}</button>
+    </ng-container>
+  </mat-menu>
+  
+   </div>
+<div style="top: 1%; position: relative; overflow-y: auto; max-height: 70vh;">
+       <div  *ngFor="let doctor of doctors " style="bottom: 0px;">
+          <div style="max-width: 230px;  border-radius: 13px;margin-top: 33px;left: 350px;height: 70px;border: none;position: relative">
+              
+            <div class="card-body" style="display: flex; align-items: center; padding: 10px; background-color: white; border-radius: 13px; width: 730px; height: 80px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                <div class="rounded-circle overflow-hidden img-container" style="margin-right: 10px; border: 3px solid #B08EF2;">
+                    <img *ngIf="images[doctor.cin]" [src]="images[doctor.cin]" class="card-img-top" alt="Skyscrapers" style="width: 52px; height: 54px;">
+                </div>
+                <div style="flex: 1;">
+                    <h6 class="card-title" style="margin: 0; font-size: regular; font-family: Poppins;"><strong>{{ doctor.nom }} {{ doctor.prenom }}</strong></h6>
+                    <p class="card-text text-secondary" style="font-size: smaller; color: grey; margin-top: 5px;">Médecin spécialisé en {{ doctor.specialite }}</p>
+                </div>
+                
+                    
+                  
+                    </div>
+                    <div class="vertical-line" style="left: 285px;top: 46px;"></div>
+                    <div class="d-flex justify-content-between align-items-center"></div>
+                       <div style="position: relative;left: 290px;top: -42px;">
+                           <span style="color: grey; font-size: smaller;"><img src="assets/images/location-svgrepo-com.svg">
+                           {{doctor.adr}}
+                          </span>
+                        </div>
+                    <div class="vertical-line" style="left: 413px;top: 46px;"></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                       <div style="position: relative;left: 420px;top: -65px;">
+                          <span style="color: grey; font-size: smaller;"><img src="assets/images/telephone-svgrepo-com (1).svg">
+                        +212 {{doctor.tel}}
+                        </span>
+                       </div>
+                    </div>
+                    <div class="vertical-line" style="left: 546px;top: 46px;"></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div style="position: relative;left: 557px;top: -90px;">
+                           <span style="color: grey; font-size: smaller;top: -41px;"><img src="assets/images/mail-alt-svgrepo-com (1).svg">
+                            {{doctor.email}}
+                         </span>
+                        </div>
+                     </div>
+                    <!--<button class="btn btn-card" style="box-sizing: border-box; padding: 3px 10px; background-color: #219ebc; color: white; font-size: smaller;"
+                        >Consulter le Calendrier</button>-->
+                </div>
+        </div>
+
+    </div>
+    <mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-panel" >
+        <mat-option *ngFor="let doctor of filteredOptions | async"  (click)="searchMedecin()" [value]="doctor.nom + ' ' + doctor.prenom" >
+          {{ doctor.nom }} {{ doctor.prenom }}
+        </mat-option>
+    </mat-autocomplete>
+</body>

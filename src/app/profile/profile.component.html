@@ -1,0 +1,129 @@
+<app-sidebar></app-sidebar>
+<body>
+   
+         
+    <div class="main" style="background-color: transparent;">
+      
+        <form *ngIf="FormGroup" [formGroup]="FormGroup" style="background-color: transparent;" >
+            <section class="signup">
+            
+                <div class="signup-content" >
+                    
+                    <div class="signup-form">
+                        <!-- <h2 style="background-color: transparent; font-family: Poppins; margin-left: 230px; top: 0px;">Votre Profil</h2>
+
+                           <div class="dropdown-container" style="position: fixed;">
+                                <button type="button" data-bs-toggle="dropdown">
+                                    <div class="user" style="right: 50px;top: 30px;width: 65px;height: 65px;">
+                                    <div *ngIf="imageSrc">
+                                        <img [src]="imageSrc" alt="Image du patient">
+                                    </div>
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Remove Image</a></li>
+                                    <li><a class="dropdown-item" href="#">View Image</a></li>
+                                </ul>
+                            </div>-->
+                            <div style="margin-left: 41%; font-family: Poppins;margin-top: 35px;color:#999">{{username.charAt(0).toUpperCase() + username.slice(1)}}</div>
+                            <div class=" user" style=" border:3px solid #B08EF2;left: 44%; top: 12px; width: 82px; height: 82px;" (click)="openFileInput()">
+                                <div *ngIf="imageSrc">
+                                  <img [src]="imageSrc" alt="Image du patient">
+                                </div>
+                                <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)">
+                              </div>
+                              
+                          
+                        <div class="row">
+                            <div class="col-md-6 " > 
+                                <label class="form-label" for="nom" style="font: size 2.1rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Nom</label>
+                                <input readonly type="text" id="nom" class="form-control form-control-sm" formControlName= "nom" style="width: calc(90% - 30px);height:20px;padding-left:5px ;color: #999;"> <!-- Ajustez la largeur -->
+                            </div>
+                            <div class="col-md-6 " > 
+                                <label class="form-label" for="prenom" style="font: size 2.1rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Prénom</label>
+                                <input readonly type="text" id="prenom" class="form-control form-control-sm" formControlName= "prenom" style="width: calc(90% - 30px);height:20px;padding-left:5px ;color: #999;"  > <!-- Ajustez la largeur -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 "> 
+                                <label class="form-label" for="cin" style="font: size 2.1rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Cin</label>
+                                <input  readonly type="text" id="cin" class="form-control form-control-sm" formControlName= "cin" style="width: calc(90% - 30px);height:20px;padding-left:5px ;color:#999">
+                            </div>
+                            <div class="col-md-6 "> 
+                                <label class="form-label" for="email" style="font: size 2.1rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Email</label>
+                                <input type="text" id="email" class="form-control form-control-sm"  formControlName= "email" style="width: calc(90% - 30px);height:20px;padding-left:5px ;color:#999">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> 
+                                <label class="form-label" for="tel" style="font: size 2.1rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Téléphone</label>
+                                <input type="text" id="tel" class="form-control form-control-sm" formControlName= "tel" style="width: calc(90% - 30px);height:20px;padding-left:5px ;color:#999" >
+                            </div>
+                            <div class="col-md-6 "> 
+                                <label class="form-label" for="adr" style="font: size 2.1rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Adresse</label>
+                                <input type="text" id="adr" class="form-control form-control-sm" formControlName= "adr" style="width: calc(90% - 30px);height:20px;padding-left:5px ;color:#999"  >
+                            </div>
+                           
+                        </div>
+                        
+                        <div *ngIf="FormGroup1">
+                            <form [formGroup]="FormGroup1">
+                        <div class="row">
+                            <div class="col-md-6"> 
+                                <label class="form-label" for="limit" style="font: size 2.1rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Limite des rendez-vous</label>
+                                <input type="text" id="limit" class="form-control form-control-sm" formControlName= "limit" style="width: calc(90% - 30px);height:20px;padding-left:5px ;color:#999" >
+                            </div>
+                            <div class="col-md-6 "> 
+                                <label class="form-label" for="duree" style="font: size 2.1rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Durée</label>
+                                <input type="text" id="duree" class="form-control form-control-sm" formControlName= "duree" style="width: calc(90% - 30px);height:20px;padding-left:5px ;color:#999"  >
+                            </div>
+                           
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2 " style="margin-top: 20px;margin-left: 400px;"> 
+                                <img src="assets/images/edit_icon.svg">  </div>
+                            <div class="col-md-2 " style="margin-top: 20px;margin-left: -65px;"> 
+                                <button type="submit" class="btn btn-primary"  style=" display: inline-block;
+                                border-radius: 40px;
+                                height: 25px;
+                                width: 100px;
+                                padding: 0 0;
+                                background-color: #e67e30;
+                                color: #ffffff;
+                                 
+                                border: none;
+                                cursor: pointer;" (click)="onSubmit1()">Régler</button></div>
+                               
+                        </div>
+                        
+                        </form>
+                        </div>
+                        
+                        <!--
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-6"> 
+                                <label class="form-label" for="email">Nombre maximal de patients par jour</label>
+                                <input type="text" id="email" class="form-control form-control-sm"  style="width: calc(80% - 10px);">
+                            </div>
+                            <div class="col-md-6 " > 
+                                <label class="form-label" for="telephone">durée de rendez-vous</label>
+                                <input type="text" id="telephone" class="form-control form-control-sm" style="width: calc(80% - 10px);">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-md-6 " > 
+                            <div class="col-md-6 "> 
+                                <button type="button" class="btn btn-primary"  style="color: black;width: 80px;">Appliquer</button>                            </div>
+                        </div>
+                        </div>
+                    -->
+                    </div> 
+                </div>
+         
+        </section>
+    </form>
+    </div>
+
+
+</body>

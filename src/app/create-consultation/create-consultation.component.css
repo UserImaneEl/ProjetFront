@@ -1,0 +1,25 @@
+.btn {
+    display: inline-block;
+    border-radius: 40px;
+    height: 25px;
+    width: 150px;
+    padding: 0 0;
+    background-color: #0B8FAC;
+    color: #ffffff;
+     
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left:280px;
+    margin-top: 7px;
+    
+  }
+  
+  .btn:hover {
+    background-color: #09758e;
+    transform: scale(1.1); /* Léger effet de zoom au survol */
+  }
+  
+  .btn:active {
+    transform: scale(0.9); /* Réduit légèrement la taille lors du clic */
+  }
