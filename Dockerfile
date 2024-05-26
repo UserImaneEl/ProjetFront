@@ -1,21 +1,17 @@
-# Stage 1: Build the Angular app
-FROM node:14 as build
+# Utiliser une image de base contenant Node.js
+FROM node:20.11.1
 
+# Définir le répertoire de travail dans le conteneur
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-
-RUN npm install
-
+# Copier les fichiers du projet dans le conteneur
 COPY . .
 
+# Installer les dépendances du projet
+RUN npm install
+
+# Construire l'application
 RUN npm run build --prod
 
-# Stage 2: Serve the Angular app with NGINX
-FROM nginx:alpine
-
-COPY --from=build /app/dist /usr/share/nginx/html
-
-EXPOSE 8082
-
-CMD ["nginx", "-g", "daemon off;"]
+# Commande par défaut pour exécuter l'application lorsque le conteneur démarre
+CMD ["npm", "start"]
