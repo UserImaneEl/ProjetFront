@@ -32,7 +32,7 @@ pipeline {
                         echo 'No existing container to remove'
                     }
                     // Run the container with restart policy set to always
-                    bat 'docker run -d --name projetfront --restart always -p 8082:8082 imane02/projetfront:latest'
+                    bat 'docker run -d --name projetfront --restart always -p 4200:80 imane02/projetfront:latest'
                 }
             }
         }

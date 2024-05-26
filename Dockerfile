@@ -7,6 +7,8 @@ WORKDIR /app
 # Copier les fichiers du projet dans le conteneur
 COPY . .
 
+ENV PORT 80
+EXPOSE $PORT
 # Installer les dépendances du projet
 RUN npm install
 
