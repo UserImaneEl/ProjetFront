@@ -1,17 +1,21 @@
-# Build Stage
-FROM maven:3.6.3-openjdk-11 AS build
+# Stage 1: Build the Angular app
+FROM node:14 as build
 
-WORKDIR /opt/app
+WORKDIR /app
 
-COPY ./ /opt/app
-RUN mvn clean install -DskipTests
+COPY package.json package-lock.json ./
 
-# Docker Build Stage
-FROM adoptopenjdk/openjdk11:alpine-slim
+RUN npm install
 
-COPY --from=build /opt/app/target/*.jar app.jar
+COPY . .
 
-ENV PORT 8082
-EXPOSE $PORT
+RUN npm run build --prod
 
-ENTRYPOINT ["java","-jar","-Dserver.port=${PORT}","app.jar"]
+# Stage 2: Serve the Angular app with NGINX
+FROM nginx:alpine
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 8082
+
+CMD ["nginx", "-g", "daemon off;"]
