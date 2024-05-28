@@ -43,12 +43,31 @@
                     </a>
                 </li>
                 
-                <li>
+                <li *ngIf="rendezVousService.roles.includes('SECRETAIRE'); else otherOverview">
                     <a [routerLink]="['/SEC']">
                         <span class="icon"><img src="assets/images/home-1-svgrepo-com.svg"></span>
                         <span class="title">Overview</span>
                     </a>
                 </li>
+                <ng-template #otherOverview>
+                    <ng-container *ngIf="rendezVousService.roles.includes('ADMIN'); else defaultOverview">
+                        <li>
+                            <a [routerLink]="['/adminMed']">
+                                <span class="icon"><img src="assets/images/home-1-svgrepo-com.svg"></span>
+                                <span class="title">Overview</span>
+                            </a>
+                        </li>
+                    </ng-container>
+                </ng-template>
+                <ng-template #defaultOverview>
+                    <li>
+                        <a [routerLink]="['/consult']">
+                            <span class="icon"><img src="assets/images/home-1-svgrepo-com.svg"></span>
+                            <span class="title">Overview</span>
+                        </a>
+                    </li>
+                </ng-template>
+                
                 <li *ngIf="rendezVousService.roles.includes('SECRETAIRE');else otherContent1" class="dropdown-container">
                     <a routerLink="/SEC" >
                         <span class="icon"><img src="assets/images/calendar-svgrepo-com.svg"></span>
@@ -77,8 +96,14 @@
                     </li>
                 </ng-template>
                 <ng-template #otherContent1>
-                    <li>
-                        <a routerLink="/consult">
+                    <li *ngIf="rendezVousService.roles.includes('ADMIN')">
+                        <a routerLink="/ajou">
+                            <span class="icon"><img src="assets/images/icons-file.svg"></span>
+                            <span class="title">Ajouter</span>
+                        </a>
+                    </li>
+                    <li *ngIf="rendezVousService.roles.includes('MEDECIN')">
+                        <a routerLink="/create">
                             <span class="icon"><img src="assets/images/icons-file.svg"></span>
                             <span class="title">Consultation</span>
                         </a>

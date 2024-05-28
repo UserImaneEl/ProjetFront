@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-list-medecins',
   templateUrl: './list-medecins.component.html',
   styleUrl: './list-medecins.component.css',
-  encapsulation: ViewEncapsulation.None
+  //encapsulation: ViewEncapsulation.None
 })
 export class ListMedecinsComponent implements OnInit{
 openCalendar(cin_med:string) {

@@ -27,20 +27,20 @@ const routes: Routes = [
 
   { path: "SEC", component: SecretaireTemplateComponent, canActivate: [AuthenticationGuard, AuthorizationGuard], data: { role: "SECRETAIRE" } },
   { path: "priseRDV", component: ListeRDVComponent, canActivate: [AuthenticationGuard,limitRDVguard]},
-  {path:"listMed",component:ListeMedecinComponent},
+  
   {path : "", redirectTo : "/login", pathMatch :"full"},//admin/listeRdv chkl la route (child component) et necessite un authenitification
   {path : "admin", component : AdminTemplateComponent ,canActivate : [AuthenticationGuard] ,children : [
   //{path :"listeRDV" ,component : ListeRdvComponent,canActivate : [AuthorizationGuard],data : {role:"ADMIN"}},
  /* {path :"custoner-accounts/:id" ,component : CustomerAccountsComponenth},*/]},
- {path:"calendar/:cin_med",component:CalendarComponentComponent},
- {path:"addPatient",component:AddPatientComponent},
- {path:"medecins",component:ListMedecinsComponent},
+ {path:"calendar/:cin_med",component:CalendarComponentComponent,canActivate: [AuthenticationGuard, AuthorizationGuard], data: { role: "MEDECIN" } },
+ {path:"addPatient",component:AddPatientComponent,canActivate: [AuthenticationGuard, AuthorizationGuard], data: { role: "SECRETAIRE" } },
+ {path:"medecins",component:ListMedecinsComponent,canActivate: [AuthenticationGuard, AuthorizationGuard], data: { role: "SECRETAIRE" } },
  {path:"MED",component:MedecinTemplateComponent},
  {path : "consult", component : ConsultationComponent},
- {path : "create", component : CreateConsultationComponent},
+ {path : "create", component : CreateConsultationComponent,canActivate: [AuthenticationGuard, AuthorizationGuard], data: { role: "MEDECIN" } },
  {path : "test", component : TestComponent},
- {path : "profile", component : ProfileComponent},
- {path : "adminMed", component : ListeMedecinComponent},
+ {path : "profile", component : ProfileComponent,canActivate: [AuthenticationGuard, AuthorizationGuard], data: { role: "ADMIN"} },
+ {path : "adminMed", component : ListeMedecinComponent,canActivate: [AuthenticationGuard, AuthorizationGuard], data: { role: "ADMIN" } },
  {path : "ajou" , component: AjouMedComponent, canActivate: [AuthenticationGuard, AuthorizationGuard], data: { role: "ADMIN" } },
   {path : "verifMed", component : AjouMedModalComponent, canActivate: [AuthenticationGuard, AuthorizationGuard], data: { role:"ADMIN"}},
 ];

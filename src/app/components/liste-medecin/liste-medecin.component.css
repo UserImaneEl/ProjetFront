@@ -1,500 +1,250 @@
-/*
+/* ============================= General Styles ============================= */
 
-ngb-rating {
-    color: #f39c12;
-    font-size :20px;
-  
-  }
-  
-  .card-text {
-    margin-bottom: 1px;
-    margin-left: 0px; 
-  }
-  .btn-card {
-    width: 100%;
-  }
-  
-  .text-secondary {
-    color: grey; 
-  }
-  .card-title,
-  .text-secondary {
-    flex: 1; 
-  }
-  
-  .rectangle {
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 28%; 
-    background-color: #fff; 
-    z-index: 1; 
-  }
-  .card {
-   
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    border: none; 
-    background-color: #fff !important;
-    border-radius: 13px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #fff;
-  }
-  .card .rectangle {
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 28%;
-    background-color: #fff !important;
-    z-index: 1;
-  }
-  .col {
-    position: relative;
-    margin-left: 45px;
-    bottom: 45px;
-    width: 200px;
-  }
-  
-  .input-group input[type="text"] {
-    border-radius: 20px !important;
-    background-color: #fff;
-  
-  }
- 
-  .input-group-btn {
-    display: flex;
-    align-items: center;
-  }
-  
-  .fa-search {
-    margin-right: 3px;
-  }
-  
-
-  .input-group-sm {
-    margin-left: 60px;
-    margin-right: 60px;
-  }
-  
-  .card {
-    margin-top: 4px;
-    position: relative;
-    z-index: -1;
-  }
-  
-
-  .btn-card {
-    position: relative;
-    border-radius: 20px;
-    padding: 5px 20px;
-    margin-top: 13px;
-  }
-  
-  
-  .input-group {
-    width: 100%;
-    max-width: 800px;
-    background-color: #f1f1f1 !important;
-    border-radius: 20px;
-    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
-  }
-  
-  
-  .input-group button i {
-    color: #888 !important;
-  }
-  .ngx-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:4px;
-  }
-  
-    .ngx-pagination li {
-      width: 28px;
-      height: 28px;
-      border-radius: 50% !important;
-      display: flex !important;
-      background: white;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-  
-  
-      &.small-screen {
-        display: none !important;
-      }
-  
-   
-  
-      &.pagination-previous,
-      &.pagination-next {
-        a, span {
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          overflow: hidden;
-          color: #f8f8f8;
-        }
-  
-      }
-    }
-  .ngx-pagination .pagination-previous a:before,
-  .ngx-pagination .pagination-previous.disabled:before,
-  .ngx-pagination .pagination-next::before {
-    margin-right: 0px !important;
-    font-size: 26px;
-    margin-top: -10px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    color: #219ebc;
-    left: 0;
-    pointer-events: none;
-  }
-  .ngx-pagination .pagination-next::before {
-    content: '\bb';
-  }
-    .ngx-pagination .pagination-next::after {
-    display: none !important;
-  }
-    .ngx-pagination .pagination-previous.disabled:before,
-    .ngx-pagination .pagination-next.disabled:before{
-      opacity: 0.4;
-    }
-  .ngx-pagination .pagination-previous.disabled:hover{
-  background: #f8f8f8 !important;
-  }
-  .ngx-pagination a:hover,
-  .ngx-pagination button:hover {
-    background: initial !important;
-  }
-  .cdk-overlay-pane {
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  border-radius: 13px;
-     font-size: smaller;
-    background-color: white;
-  }
-  
-  .cdk-overlay-pane{
-    font-size: 13px;
-  }
-  .input-group input:focus {
-    border-color: #219ebc;
-    box-shadow: none; 
-  
-  }
-  .input-group input {
-    outline: none;
-    background: none;
-    flex: 1;
-    padding: 5px;
-    font-size: 16px;
-  }
-  
-  dl, ol, ul {
-    margin-top: -20px;
-  }
-  .alert {
-    height: 30px;
-    margin-right: 55px;
-    margin-left: 50px;
-    display: flex;
-    align-items: center;
-  }
-  .btn-close{
-    margin-left: 640px;
-    font-size: 12px;
-  
-  }
-  #button-addon {
-    background-color: #f1f1f1;
-  }
-  .vertical-line {
-    border-left: 3px solid #B08EF2;
-    border-radius: 14px;
-    height: 14px; 
-    position: absolute;
-    left: 385px; 
-    top: 47px;
+.ngb-rating {
+  color: #f39c12;
+  font-size: 20px;
 }
+
+.card-text {
+  margin-bottom: 1px;
+}
+
+.btn-card {
+  width: 100%;
+  border-radius: 20px;
+  padding: 5px 20px;
+  margin-top: 13px;
+}
+
+.text-secondary {
+  color: grey;
+}
+
+.card-title,
+.text-secondary {
+  flex: 1;
+}
+
+.rectangle {
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 28%;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.card {
+  border-radius: 13px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  background-color: #fff !important;
+  margin-top: 4px;
+  position: relative;
+}
+
+.col {
+  position: relative;
+  margin-left: 45px;
+  bottom: 45px;
+  width: 200px;
+}
+
+.input-group input[type="text"] {
+  border-radius: 20px !important;
+  background-color: #fff;
+}
+
+.input-group-btn {
+  display: flex;
+  align-items: center;
+}
+
+.fa-search {
+  margin-right: 3px;
+}
+
+.input-group-sm {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.input-group {
+  width: 100%;
+  max-width: 800px;
+  background-color: #f1f1f1 !important;
+  border-radius: 20px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.input-group button i {
+  color: #888 !important;
+}
+
+.input-group input:focus {
+  border-color: #219ebc;
+  box-shadow: none;
+}
+
+.input-group input {
+  outline: none;
+  background: none;
+  flex: 1;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.ngx-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.ngx-pagination li {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% !important;
+  display: flex !important;
+  background: white;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ngx-pagination .pagination-previous a:before,
+.ngx-pagination .pagination-previous.disabled:before,
+.ngx-pagination .pagination-next::before {
+  margin-right: 0px !important;
+  font-size: 26px;
+  margin-top: -10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  color: #219ebc;
+  left: 0;
+  pointer-events: none;
+}
+
+.ngx-pagination .pagination-next::before {
+  content: '\bb';
+}
+
+.ngx-pagination .pagination-next::after {
+  display: none !important;
+}
+
+.ngx-pagination .pagination-previous.disabled:before,
+.ngx-pagination .pagination-next.disabled:before {
+  opacity: 0.4;
+}
+
+.ngx-pagination .pagination-previous.disabled:hover {
+  background: #f8f8f8 !important;
+}
+
+.ngx-pagination a:hover,
+.ngx-pagination button:hover {
+  background: initial !important;
+}
+
+.cdk-overlay-pane {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 13px;
+  font-size: 13px;
+  background-color: white;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.card-body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.dl, ol, ul {
+  margin-top: -20px;
+}
+
+.alert {
+  height: 30px;
+  margin-right: 55px;
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-close {
+  margin-left: 640px;
+  font-size: 12px;
+}
+
+#button-addon {
+  background-color: #f1f1f1;
+}
+
+.vertical-line {
+  border-left: 3px solid #B08EF2;
+  border-radius: 14px;
+  height: 14px;
+  position: absolute;
+  left: 385px;
+  top: 47px;
+}
+
 .doctors-container {
-    top:100px;
-   left:30%;
-    display: flex;
-    flex-direction: column;
-    
-    position: relative;
+  top: 100px;
+  left: 30%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .doctor-card {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-*/
-/* ============================= Cards ============================= */
 
-ngb-rating {
-    color: #f39c12;
-    font-size :20px;
-  
-  }
-  
-  .card-text {
-    margin-bottom: 1px; /* Adjust the margin-bottom as needed */
-  }
-  .btn-card {
-    width: 100%;
-  }
-  
-  .text-secondary {
-    color: grey; /* Use grey color for the specialty */
-  }
-  .card-title,
-  .text-secondary {
-    flex: 1; /* Equal width for name and specialty */
-  }
-  
-  .rectangle {
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 28%; /* Cover the top half of the image */
-    background-color: #fff; /* Change the color and opacity of the rectangle */
-    z-index: 1; /* Ensure the rectangle is behind the image */
-  }
-  .card {
-    border-radius: 13px; /* Rounded corners for top-left and top-right */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow effect */
-    border: none; /* No border */
-    background-color: #fff !important; /* Assurez-vous que la carte a un fond blanc */
-    border-radius: 13px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #fff;
-  }
-  .card .rectangle {
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 28%;
-    background-color: #fff !important; /* Couleur du rectangle */
-    z-index: 1;
-  }
-  .col {
-    position: relative;
-    margin-left: 45px;
-    bottom: 45px;
-    width: 200px;
-  }
-  
-  .input-group input[type="text"] {
-    border-radius: 20px !important;
-    background-color: #fff;
-  
-  }
-  
-  /* Center the search icon vertically */
-  .input-group-btn {
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Style the Font Awesome search icon */
-  .fa-search {
-    margin-right: 3px;
-  }
-  
-  /* Adjust margin and padding for better alignment */
-  .input-group-sm {
-    margin-left: 60px;
-    margin-right: 60px;
-  }
-  
-  /* Adjust card styles for better spacing */
-  .card {
-    margin-top: 4px;
-    position: relative;
-    z-index: -1;
-  }
-  
-  /* Style the "Prendre rendez-vous" button */
-  .btn-card {
-    position: relative;
-    border-radius: 20px;
-    padding: 5px 20px;
-    margin-top: 13px;
-  }
-  
-  
-  .input-group {
-    width: 100%;
-    max-width: 800px;
-    background-color: #f1f1f1 !important;
-    border-radius: 20px;
-    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
-  }
-  
-  
-  .input-group button i {
-    color: #888 !important;
-  }
-  .ngx-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:4px;
-  }
-  
-    .ngx-pagination li {
-      width: 28px;
-      height: 28px;
-      border-radius: 50% !important;
-      display: flex !important;
-      background: white;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-  
-      /* Hide pagination for small screens */
-  
-      &.small-screen {
-        display: none !important;
-      }
-  
-      /* Style the previous and next buttons */
-  
-      &.pagination-previous,
-      &.pagination-next {
-        a, span {
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          overflow: hidden;
-          color: #f8f8f8;
-        }
-  
-      }
-    }
-  .ngx-pagination .pagination-previous a:before,
-  .ngx-pagination .pagination-previous.disabled:before,
-  .ngx-pagination .pagination-next::before {
-    margin-right: 0px !important;
-    font-size: 26px;
-    margin-top: -10px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    color: #219ebc;
-    left: 0;
-    pointer-events: none;
-  }
-  .ngx-pagination .pagination-next::before {
-    content: '\bb';
-  }
-    .ngx-pagination .pagination-next::after {
-    display: none !important;
-  }
-    .ngx-pagination .pagination-previous.disabled:before,
-    .ngx-pagination .pagination-next.disabled:before{
-      opacity: 0.4;
-    }
-  .ngx-pagination .pagination-previous.disabled:hover{
-  background: #f8f8f8 !important;
-  }
-  .ngx-pagination a:hover,
-  .ngx-pagination button:hover {
-    background: initial !important;
-  }
-  .cdk-overlay-pane {
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  border-radius: 13px;
-     font-size: smaller;
-    background-color: white;
-  }
-  .main-container {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
+/* ============================= Menu Styles ============================= */
 
-  .card-body {
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
-  .cdk-overlay-pane{
-    font-size: 13px;
-  }
-  .input-group input:focus {
-    border-color: #219ebc; /* Change the border color to a lighter color */
-    box-shadow: none; /* Remove any box shadow */
-  
-  }
-  .input-group input {
-    outline: none;
-    background: none;
-    flex: 1;
-    padding: 5px;
-    font-size: 16px;
-  }
-  
-  dl, ol, ul {
-    margin-top: -20px;
-  }
-  .alert {
-    height: 30px;
-    margin-right: 55px;
-    margin-left: 50px;
-    display: flex;
-    align-items: center;
-  }
-  .btn-close{
-    margin-left: 640px;
-    font-size: 12px;
-  
-  }
-  #button-addon {
-    background-color: #f1f1f1;
-  }
-  .vertical-line {
-    border-left: 3px solid #B08EF2;
-    border-radius: 14px;
-    height: 14px; /* La hauteur de la ligne sera égale à celle de son conteneur */
-    position: absolute;
-    left: 385px; /* La ligne sera centrée horizontalement */
-    top: 47px;
-
-}
-.filterButton{
- left: 140%;
+.filterButton {
+  left: 154%;
   margin-top: 15px;
   border-radius: 15px;
   background-color: #fcbf49;
   color: white;
   border: none;
   width: 120px;
- height:30px;
- position: relative;
+  height: 30px;
+  position: relative;
 }
+
 .img-container {
   width: 52px;
   height: 54px;
-  
+}
+
+.custom-menu {
+  background-color: #f0f0f0;
+   margin-left: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-menu .mat-menu-item {
+  color: #333;
+  background-color: white;
+}
+
+.custom-menu .mat-menu-item:hover {
+  background-color: #e0e0e0;
 }

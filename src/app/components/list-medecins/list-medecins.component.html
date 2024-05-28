@@ -82,7 +82,7 @@
           </button>
         </div>
             <div class="row row-cols-1 row-cols-md-5 g-4 me-5 ms-5 mb-1" style="padding-top: 0px !important;">
-               <div class="col" *ngFor="let doctor of doctors | paginate: { itemsPerPage:itemsPerPage , currentPage: p }" >
+               <div  class="col" *ngFor="let doctor of doctors | paginate: { itemsPerPage:itemsPerPage , currentPage: p }" >
                   <div style="max-width: 230px;  border-radius: 13px;margin-top: 70px;height: 180px;border: none;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);position: relative;">
                      <div class="rectangle"></div>
                         <div class="card-body" style="padding: 12px;">
@@ -113,7 +113,7 @@
                 </div>
     
             </div>
-            <div *ngIf="totalPages > 1" class=" justify-center items-center" style="margin-left:30%; top: 100%; padding: 0; position: fixed;" > 
+            <div *ngIf="totalPages > 1" class=" justify-center items-center" style="margin-left:26%; top: 94%; padding: 0; position: fixed;" > 
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
         </div>

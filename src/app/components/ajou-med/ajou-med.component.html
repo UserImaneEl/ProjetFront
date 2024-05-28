@@ -1,61 +1,53 @@
 <app-sidebar></app-sidebar>
 <div class="container">
-  <h5 class="text-uppercase" style="font-family: Poppins;top: -5px; bottom: 20px;position: relative; left: 223px;">Ajouter un medecin</h5>
+  <h5 class="text-uppercase" style="font-family: Poppins;top: -5px; bottom: 20px;position: relative; left: 223px;">Ajouter un médecin</h5>
   <form [formGroup]="inscriptionForm">
-      <div class="row justify-content-center align-items-center">
-          <div class="col-md-5">
-              <div class="form-group mb-3 custom-margin">
-                  <label class="form-label" for="nom" style="font-size: 16px; margin-bottom: 5px; margin-left: 4px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Nom</label>
-                  <input type="text" id="nom" class="form-control form-control-lg" formControlName="nom" placeholder="Nom">
-              </div>
-              <div class="form-group mb-3 custom-margin">
-                  <label class="form-label" for="prenom" style="font-size: 16px; margin-bottom: 5px; margin-left: 4px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Prénom</label>
-                  <input type="text" id="prenom" class="form-control form-control-lg" formControlName="prenom" placeholder="Prénom">
-              </div>
-              <div class="form-group mb-3 custom-margin">
-                  <label class="form-label" for="cin" style="font-size: 16px; margin-bottom: 5px; margin-left: 4px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">CIN</label>
-                  <input type="text" id="cin" class="form-control form-control-lg" formControlName="cin" placeholder="CIN">
-              </div>
-              <div class="form-group mb-3 custom-margin">
-                  <label class="form-label" for="tel" style="font-size: 16px; margin-bottom: 5px; margin-left: 4px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Téléphone</label>
-                  <input type="text" id="tel" class="form-control form-control-lg" formControlName="tel" placeholder="Téléphone">
-              </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-5">
+        <div class="form-group mb-3 custom-margin">
+          <label class="form-label" for="nom">Nom</label>
+          <input type="text" id="nom" class="form-control form-control-lg" formControlName="nom" placeholder="Nom">
+        </div>
+        <div class="form-group mb-3 custom-margin">
+          <label class="form-label" for="prenom">Prénom</label>
+          <input type="text" id="prenom" class="form-control form-control-lg" formControlName="prenom" placeholder="Prénom">
+        </div>
+        <div class="form-group mb-3 custom-margin">
+          <label class="form-label" for="cin">CIN <span class="required-star">*</span></label>
+          <input type="text" id="cin" class="form-control form-control-lg" formControlName="cin" placeholder="CIN" (blur)="checkDuplicateCin()">
+          <!-- Affichage des erreurs pour le CIN -->
+          <div *ngIf="cinValid" class="text-danger error-message">
+            Ce CIN est déjà utilisé.
           </div>
-          <div class="col-md-5">
-              <div class="form-group mb-3 custom-margin">
-                  <label class="form-label" for="adresse" style="font-size: 16px; margin-bottom: 5px; margin-left: 4px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Adresse</label>
-                  <input type="text" id="adresse" class="form-control form-control-lg" formControlName="adresse" placeholder="Adresse">
-              </div>
-              <div class="form-group mb-3 custom-margin">
-                  <label class="form-label" for="dateN" style="font-size: 16px; margin-bottom: 5px; margin-left: 4px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Date de naissance</label>
-                  <input type="date" id="dateN" class="form-control form-control-lg" formControlName="dateN">
-              </div>
-              <div class="form-group mb-3 custom-margin">
-                  <label class="form-label" for="email" style="font-size: 16px; margin-bottom: 5px; margin-left: 4px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Email</label>
-                  <input type="email" id="email" class="form-control form-control-lg" formControlName="email" placeholder="Email">
-              </div>
-              <div class="form-group mb-3 custom-margin">
-                  <label class="form-label" for="specialite"  style="font-size: 16px; margin-bottom: 5px; margin-left: 4px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Spécialité</label>
-                  <input type="text" id="specialite" class="form-control form-control-lg" formControlName="specialite" placeholder="Spécialité">
-              </div>
-          </div>
+        </div>
+        <div class="form-group mb-3 custom-margin" style="margin-top: 14px;">
+          <label class="form-label" for="tel">Téléphone</label>
+          <input type="text" id="tel" class="form-control form-control-lg" formControlName="tel" placeholder="Téléphone">
+        </div>
       </div>
-      <div class="row justify-content-center align-items-center">
-          <div class="col-md-2">
-              <button type="submit" style=" display: inline-block;
-              position: relative;
-              border-radius: 40px;
-              height: 25px;
-              width: 100px;
-              padding: 0 0;
-              top:11px;
-              left: 240px;
-              background-color: #fcbf49;
-              color: #ffffff;
-               font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-              border: none;
-              cursor: pointer;" (click)="Ajouter()" [disabled]="!inscriptionForm.valid">Register</button>
+      <div class="col-md-5">
+        <div class="form-group mb-3 custom-margin">
+          <label class="form-label" for="adresse">Adresse</label>
+          <input type="text" id="adresse" class="form-control form-control-lg" formControlName="adresse" placeholder="Adresse">
+        </div>
+        <div class="form-group mb-3 custom-margin">
+          <label class="form-label" for="dateN">Date de naissance</label>
+          <input type="date" id="dateN" class="form-control form-control-lg" formControlName="dateN">
+        </div>
+        <div class="form-group mb-3 custom-margin">
+          <label class="form-label" for="email">Email <span class="required-star">*</span></label>
+          <input type="email" id="email" class="form-control form-control-lg" formControlName="email" placeholder="Email" (blur)="checkEmail()">
+          <!-- Affichage des erreurs pour l'e-mail -->
+          <div *ngIf="!validEmail" class="text-danger error-message">
+            Veuillez saisir une adresse e-mail valide.
           </div>
+        </div>
+        <div class="form-group mb-3 custom-margin" style="margin-top: 14px;">
+          <label class="form-label" for="specialite">Spécialité</label>
+          <input type="text" id="specialite" class="form-control form-control-lg" formControlName="specialite" placeholder="Spécialité">
+        </div>
       </div>
-  </form>
-</div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-2">
+        <button type="submit" style="display: inline-block; position: relative; border-radius: 40px; height: 25px; width: 100px; padding: 0 0; top: 11px; left: 240px; background-color: #fcbf49; color: #ffffff; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; border: none; cursor: pointer;" (click)="Ajouter()">Register</button>

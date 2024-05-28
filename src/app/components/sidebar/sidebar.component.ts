@@ -39,6 +39,7 @@ versAddPatient() {
   ngOnInit(): void {
     this.rendezVousService.getInfos().subscribe(data=>{
        this.nom_conn=data.nom;
+       
        this.prenom_conn=data.prenom;
        console.log(this.nom_conn);
        console.log(this.prenom_conn);

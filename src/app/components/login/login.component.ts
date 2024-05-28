@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
       }
       else if(role=='ROLE_ADMIN'){
-        this.router.navigateByUrl("ajou");
+        this.router.navigateByUrl("adminMed");
       }
    
       },

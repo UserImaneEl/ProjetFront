@@ -19,15 +19,16 @@ section {
     position: relative;
     width: 380px;
     height: 380px;
-    background: transparent;
-    border: none;
+    background: rgba(11, 143, 172, 0.7); /* Couleur de fond avec transparence */
     border-radius: 20px;
-    backdrop-filter: blur(15px) brightness(80%);
+    backdrop-filter: blur(15px); /* Effet de flou */
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 20%;
+    left: 14%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Ombre */
 }
+
 
 h2 {
     font-size: 2em;
@@ -104,13 +105,20 @@ button {
     width: 100%;
     height: 40px;
     border-radius: 40px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7);/* Couleur de fond avec transparence */
     border: none;
     outline: none;
     cursor: pointer;
     font-size: 1em;
     font-weight: 600;
+    color: #333; /* Couleur du texte */
+    transition: background-color 0.3s ease;
 }
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Couleur de fond au survol avec transparence */
+}
+
 
 .register {
     font-size: 0.9em;
@@ -128,10 +136,24 @@ button {
 .register p a:hover {
     text-decoration: underline;
 }
+.register a:hover {
+    color: #0056b3; /* Couleur du lien au survol */
+}
 
 @media screen and (max-width: 480px) {
     .form-box {
         width: 100%;
         border-radius: 0px; /* Correction: Removed invisible character */
     }
+}
+.form-label {
+    color: #ffffff; /* Couleur du texte */
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.5); /* Couleur de fond des zones de texte avec transparence */
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    color: #333; /* Couleur du texte */
 }

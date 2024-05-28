@@ -1,4 +1,4 @@
-import {Component, NgIterable, OnInit} from '@angular/core';
+import {Component, NgIterable, OnInit, ViewEncapsulation} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {limitRDVguard} from "../../guards/limitRDV.guard";
 
@@ -11,7 +11,9 @@ import { Observable, map, startWith } from 'rxjs';
 @Component({
   selector: 'app-liste-medecin',
   templateUrl: './liste-medecin.component.html',
-  styleUrl: './liste-medecin.component.css'
+  styleUrl: './liste-medecin.component.css',
+  encapsulation: ViewEncapsulation.None
+ 
 })
 export class ListeMedecinComponent implements OnInit {
 
@@ -73,7 +75,7 @@ export class ListeMedecinComponent implements OnInit {
           console.log(this.doctors.length);
         },
         (error) => {
-          console.error('Error fetching rendezvous:', error);
+          console.error('Error fetching medecins:', error);
         }
       );
   }

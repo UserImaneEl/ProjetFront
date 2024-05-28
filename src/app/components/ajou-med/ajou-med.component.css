@@ -14,9 +14,35 @@ label.required::after {
   width: 60%;
   border-radius: 20px;
  left:110px;
- height: 400px;
+ height: 430px;
  padding-top: 30px;
 }
 .custom-margin {
   margin-bottom: 4px !important; /* Ajustez cette valeur selon votre préférence */
+}
+/* Fixer la hauteur des champs de saisie */
+.custom-margin input {
+  height: 40px; /* Hauteur fixe */
+}
+
+/* Utiliser une mise en page flexible */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Prévoir de l'espace pour les messages d'erreur */
+.text-danger {
+  margin-top: 4px; /* Espace entre le champ de saisie et le message d'erreur */
+  font-size: 12px; /* Taille de police pour les messages d'erreur */
+}
+
+.error-message {
+  height: 7px; /* Ajustez cette valeur selon la hauteur de votre message d'erreur */
+  margin-top: 3px; /* Ajustez cet espace si nécessaire */
+}
+.required-star {
+  color: red;
+  margin-left: 2px; /* Espace entre le label et l'étoile */
 }

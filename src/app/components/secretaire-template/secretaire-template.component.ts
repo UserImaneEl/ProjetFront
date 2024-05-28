@@ -74,6 +74,7 @@ handleModalClose() {
         this.rendezVousList = data;
         console.log(data);
         this.loading = false;
+        console.log("salaaaaaaaaaam");
       },
       error: (error) => {
         //console.error('Error fetching rendezvous:', error);

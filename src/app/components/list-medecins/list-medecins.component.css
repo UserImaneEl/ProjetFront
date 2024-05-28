@@ -386,6 +386,13 @@ body {
   font-size: 2.5rem;
   color: #212185;
 }
+/* Stylez la pagination */
+
+/* Cachez les boutons "Next" et "Previous" */
+.ngx-pagination .pagination-previous,
+.ngx-pagination .pagination-next {
+  display: none;
+}
 
 .cardBox .card .cardName {
   color: #999;
@@ -653,4 +660,15 @@ ngb-rating {
   }
   #button-addon {
     background-color: #f1f1f1;
+}/* Stylez la pagination */
+/* Modifier les icônes des boutons "Next" et "Previous" */
+.ngx-pagination .pagination-previous a:before {
+  content: "\f053"; /* Icône Font Awesome pour Previous (ex: flèche gauche) */
+  font-family: "Font Awesome 5 Free";
 }
+
+.ngx-pagination .pagination-next a:before {
+  content: "\f054"; /* Icône Font Awesome pour Next (ex: flèche droite) */
+  font-family: "Font Awesome 5 Free";
+}
+

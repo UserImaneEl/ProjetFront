@@ -53,7 +53,7 @@ import { AjouMedModalComponent } from './components/ajou-med-modal/ajou-med-moda
     CardBoxComponent,
     ModalContentCalendarComponent,
    CalendarComponentComponent,
-
+  
    ListMedecinsComponent,
    MedecinTemplateComponent,
    ConsultationComponent,

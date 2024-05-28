@@ -23,7 +23,7 @@ username:any;
 FormGroup?: FormGroup;
 FormGroup1?: FormGroup ;
 
-constructor(private http: HttpClient,private sr:AuthService,private fb:FormBuilder) {}
+constructor(private http: HttpClient,public sr:AuthService,private fb:FormBuilder) {}
     
   imageSrc: string | undefined;
   cin_conn:any;
