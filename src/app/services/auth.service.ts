@@ -180,9 +180,9 @@ checkDuplicateCin(cin: string): Observable<boolean> {
   return this.http.get<boolean>(this.API_URL +"/existsCin/"+cin);
 }
 
-checkDuplicatedUsername(username: string): Observable<boolean> {
+checkDuplicatedUsername(username: string,departement:string): Observable<boolean> {
   
-  return this.http.get<boolean>(this.API_URL +"/exists/"+username);
+  return this.http.post<boolean>(this.API_URL +"/exists/"+username,departement);
 }
 
 }
