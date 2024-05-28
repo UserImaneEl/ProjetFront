@@ -173,18 +173,18 @@ getDep() :Observable<Departement[]> {
   return this.http.get<Departement[]>(this.API_URL+"/dep");
 }
 checkDuplicateUsername(username: string): Observable<boolean> {
-  // Utilisez HttpClient pour envoyer une requête HTTP à votre backend
-  // Endpoint pour vérifier si le nom d'utilisateur existe déjà
-  // Adapté à votre propre implémentation de l'API backend
+  
   return this.http.get<boolean>(this.API_URL +"/exists/"+username);
 }
 checkDuplicateCin(cin: string): Observable<boolean> {
-  // Utilisez HttpClient pour envoyer une requête HTTP à votre backend
-  // Endpoint pour vérifier si le nom d'utilisateur existe déjà
-  // Adapté à votre propre implémentation de l'API backend/existsCin/{cin}
   return this.http.get<boolean>(this.API_URL +"/existsCin/"+cin);
 }
+
+checkDuplicatedUsername(username: string,departement:string): Observable<boolean> {
+  
+  return this.http.post<boolean>(this.API_URL +"/exists/"+username,departement);
 }
 
+}
 
 
